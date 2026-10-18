@@ -1,0 +1,48 @@
+{
+	"geode": "5.0.0",
+	"gd": {
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081",
+		"ios": "2.2081"
+	},
+	"version": "v1.0.0",
+	"id": "srank.input-buffer",
+	"name": "Input Buffer",
+	"developer": "srank",
+	"description": "Widens 1-tick frame-perfect jump timings into a 2-8 tick window by buffering early clicks.",
+	"tags": ["gameplay", "enhancement"],
+	"settings": {
+		"enabled": {
+			"type": "bool",
+			"name": "Enable Input Buffer",
+			"description": "Turns the buffering on or off.",
+			"default": true
+		},
+		"buffer-ticks": {
+			"type": "int",
+			"name": "Buffer Window (ticks)",
+			"description": "How many physics ticks a click stays 'armed'. 1 = vanilla (frame-perfect). 2-4 turns a 1-tick timing into a 2-4 tick window. One tick is about 4.17ms at 240 TPS.",
+			"default": 3,
+			"min": 1,
+			"max": 8,
+			"control": {
+				"slider": true,
+				"arrows": true,
+				"input": true
+			}
+		},
+		"buffer-player2": {
+			"type": "bool",
+			"name": "Buffer Player 2",
+			"description": "Also buffer clicks for the second player in dual mode.",
+			"default": true
+		},
+		"skip-held-modes": {
+			"type": "bool",
+			"name": "Skip Ship and Wave",
+			"description": "Ship and wave are hold-based, so buffering does nothing useful there. Leave this on to avoid extra release/press toggling.",
+			"default": true
+		}
+	}
+}
